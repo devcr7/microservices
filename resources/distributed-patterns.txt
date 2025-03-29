@@ -1,0 +1,12 @@
+
+- Service Registry and Discovery (/)
+- API Gateway (/)
+- CQRS (Command Query Responsibility Segregation) (/)
+- Database per Service (/)
+- Event-driven Architecture (RabbitMQ) (/)
+- Saga Pattern (x)
+- Circuit breaker (x)
+
+
+------------------------------------------
+
