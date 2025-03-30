@@ -21,3 +21,13 @@ server:
       customer-url: http://localhost:8222/api/v1/customers
       product-url: http://localhost:8222/api/v1/products
       payment-url: http://localhost:8222/api/v1/products
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.JsonSerializer
+      properties:
+        spring.json.type.mapping:
+          orderConfirmation:
+            com.shukldi.ecommerce.kafka.OrderConfirmation
