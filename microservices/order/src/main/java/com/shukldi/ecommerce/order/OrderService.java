@@ -7,6 +7,8 @@ import com.shukldi.ecommerce.kafka.OrderConfirmation;
 import com.shukldi.ecommerce.kafka.OrderProducer;
 import com.shukldi.ecommerce.orderline.OrderLineRequest;
 import com.shukldi.ecommerce.orderline.OrderLineService;
+import com.shukldi.ecommerce.payment.PaymentClient;
+import com.shukldi.ecommerce.payment.PaymentRequest;
 import com.shukldi.ecommerce.product.ProductClient;
 import com.shukldi.ecommerce.product.PurchaseRequest;
 import com.shukldi.ecommerce.product.PurchaseResponse;
@@ -26,6 +28,7 @@ public class OrderService {
     private final OrderMapper orderMapper;
     private final OrderLineService orderLineService;
     private final OrderProducer orderProducer;
+    private final PaymentClient paymentClient;
 
     public Integer createOrder(@Valid OrderRequest request) {
         // check the customer
@@ -51,7 +54,14 @@ public class OrderService {
             );
         }
 
-        // todo start payment process
+        //start payment process
+        paymentClient.requestOrderPayment(
+                new PaymentRequest(
+                        order.getTotalAmount(),
+                        order.getPaymentMethod(),
+                        order.getId(),
+                        order.getReference(),
+                        customer));
 
         // send the order confirmation to notification microservice (kafka)
         orderProducer.sendOrderConfirmation(

@@ -1,4 +1,4 @@
-package com.shukldi.ecommerce.order;
+package com.shukldi.ecommerce.payment;
 
 public enum PaymentMethod {
     PAYPAL,
