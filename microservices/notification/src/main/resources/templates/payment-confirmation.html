@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #4CAF50;
+            color: #ffffff;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #4CAF50;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Payment Confirmation</h1>
+    </div>
+    <div class="content">
+        <p>Dear <span th:text="${customerName}">Customer</span>,</p>
+        <p>Thank you for your payment. Your payment of <span th:text="${amount}">$0.00</span> has been successfully processed.</p>
+        <p>Payment Details:</p>
+        <ul>
+            <li>Payment ID: <span th:text="${paymentId}">12345</span></li>
+            <li>Order ID: <span th:text="${orderId}">12345</span></li>
+            <li>Payment Date: <span th:text="${paymentDate}">2023-01-01</span></li>
+        </ul>
+        <p>If you have any questions, please contact our support team.</p>
+        <p>Best regards,</p>
+        <p>The E-commerce Team</p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 E-commerce. All rights reserved.</p>
+    </div>
+</div>
+</body>
+</html>
