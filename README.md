@@ -11,6 +11,7 @@ Key Features & Concepts Covered
 ✅ Security & Authentication – Secure microservices with Keycloak
 ✅ Containerized Deployment – Docker & Docker Compose setup for easy deployment
 
+![image](https://github.com/user-attachments/assets/6e4dad1a-f6bc-42e2-90b5-2bec9909d058)
+
 ![image](https://github.com/user-attachments/assets/ec4c8273-9fd4-483f-9ec1-58721a51e30c)
 
-![image](https://github.com/user-attachments/assets/6e4dad1a-f6bc-42e2-90b5-2bec9909d058)
