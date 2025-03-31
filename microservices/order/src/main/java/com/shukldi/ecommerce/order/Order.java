@@ -17,7 +17,6 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 @Table(name = "CUSTOMER_ORDER")
 public class Order {
 
@@ -26,7 +25,7 @@ public class Order {
     @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "REFERENCE", unique = true)
+    @Column(name = "REFERENCE")
     private String reference;
 
     @Column(name = "TOTAL_AMOUNT")
@@ -41,12 +40,4 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private List<OrderLine> orderLine;
-
-    @CreatedDate
-    @Column(name = "CREATED_AT", updatable = false, nullable = false)
-    private LocalDateTime createdAt;
-
-    @LastModifiedDate
-    @Column(name = "LAST_MODIFIED_DATE", nullable = false, insertable = false)
-    private LocalDateTime lastModifiedDate;
 }

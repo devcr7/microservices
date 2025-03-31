@@ -46,9 +46,12 @@
         <p>Thank you for your order. Your order has been successfully placed.</p>
         <p>Order Details:</p>
         <ul>
-            <li>Order ID: <span th:text="${orderId}">12345</span></li>
-            <li>Order Date: <span th:text="${orderDate}">2023-01-01</span></li>
+            <li>Order Reference: <span th:text="${orderReference}">12345</span></li>
             <li>Total Amount: <span th:text="${totalAmount}">$100.00</span></li>
+            <li>Products:</li>
+            <ul th:each="product : ${products}">
+                <li><span th:text="${product.name}">Product Name</span> - <span th:text="${product.price}">$0.00</span></li>
+            </ul>
         </ul>
         <p>If you have any questions, please contact our support team.</p>
         <p>Best regards,</p>

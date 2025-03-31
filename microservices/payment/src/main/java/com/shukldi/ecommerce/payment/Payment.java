@@ -2,12 +2,8 @@ package com.shukldi.ecommerce.payment;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,7 +11,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 @Table(name = "PAYMENT")
 public class Payment {
 
@@ -32,13 +27,4 @@ public class Payment {
 
     @Column(name = "ORDER_ID")
     private Integer orderId;
-
-    @CreatedDate
-    @Column(name = "CREATED_AT", updatable = false, nullable = false)
-    private LocalDateTime createdAt;
-
-    @LastModifiedDate
-    @Column(name = "LAST_MODIFIED_DATE", nullable = false, insertable = false)
-    private LocalDateTime lastModifiedDate;
-
 }

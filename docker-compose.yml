@@ -97,11 +97,31 @@ services:
     image: maildev/maildev:2.1.0
     container_name: maildev_container
     ports:
-      - "1080:80"
-      - "1025:25"
+      - "1080:1080"  # Web UI
+      - "1025:1025"  # SMTP server
     networks:
       - microservices-net
     restart: unless-stopped
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - microservices-net
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.2
+    container_name: keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "9098:8080"
+    command: start-dev
+    networks:
+      - microservices-net
 
 volumes:
   postgres_data:

@@ -64,15 +64,15 @@ public class OrderService {
                         customer));
 
         // send the order confirmation to notification microservice (kafka)
-        orderProducer.sendOrderConfirmation(
-                new OrderConfirmation(
-                        request.reference(),
-                        request.amount(),
-                        request.paymentMethod(),
-                        customer,
-                        purchaseResponseList
-                )
-        );
+//        orderProducer.sendOrderConfirmation(
+//                new OrderConfirmation(
+//                        request.reference(),
+//                        request.amount(),
+//                        request.paymentMethod(),
+//                        customer,
+//                        purchaseResponseList
+//                )
+//        );
 
         return order.getId();
     }

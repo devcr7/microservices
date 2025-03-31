@@ -21,15 +21,15 @@ public class OrderLine {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "ORDER_ID", nullable = false)
+    @JoinColumn(name = "ORDER_ID")
     private Order order;
 
-    @Column(name = "PRODUCT_ID", nullable = false)
+    @Column(name = "PRODUCT_ID")
     private Integer productId;
 
-    @Column(name = "QUANTITY", nullable = false)
+    @Column(name = "QUANTITY")
     private double quantity;
 
-    @Column(name = "PRICE", nullable = false)
+    @Column(name = "PRICE")
     private BigDecimal price;
 }
